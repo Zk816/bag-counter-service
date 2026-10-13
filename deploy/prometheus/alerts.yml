@@ -7,14 +7,12 @@ groups:
         labels: { severity: critical }
         annotations:
           summary: "Inference worker is not running or its job loop is stuck"
-          runbook: docs/RUNBOOK.md#bagcounterworkerdown
 
       - alert: BagcounterSelftestFailing
         expr: bagcounter_selftest_ok{job="bagcounter-worker"} == 0 or time() - bagcounter_selftest_last_success_timestamp_seconds{job="bagcounter-worker"} > 900
         labels: { severity: critical }
         annotations:
           summary: "Model self-test failed or has not passed for 15 min: counts cannot be trusted"
-          runbook: docs/RUNBOOK.md#bagcounterselftestfailing
 
       - alert: BagcounterCameraNoSignal
         expr: max by (stream) (bagcounter_stream_state{state=~"stalled|frozen"}) == 1
@@ -22,7 +20,6 @@ groups:
         labels: { severity: critical }
         annotations:
           summary: "Camera {{ $labels.stream }} has no picture (stalled or frozen)"
-          runbook: docs/RUNBOOK.md#bagcountercameranosignal
 
       - alert: BagcounterNoBagsCounted
         expr: |
@@ -33,7 +30,6 @@ groups:
         labels: { severity: warning }
         annotations:
           summary: "Camera {{ $labels.stream }} is live but counted no bag in 30 min (line stopped, or the line/model is wrong)"
-          runbook: docs/RUNBOOK.md#bagcounternobagscounted
 
       - alert: BagcounterProcessingTooSlow
         expr: rate(bagcounter_frames_processed_total{stream!="job"}[5m]) < 5 and on (stream) bagcounter_stream_state{state="live"} == 1
@@ -41,7 +37,6 @@ groups:
         labels: { severity: warning }
         annotations:
           summary: "Camera {{ $labels.stream }} processed under 5 FPS: fast bags may be missed"
-          runbook: docs/RUNBOOK.md#bagcounterprocessingtooslow
 
       - alert: BagcounterHighLatency
         expr: histogram_quantile(0.95, sum by (le, stream) (rate(bagcounter_frame_latency_seconds_bucket[5m]))) > 0.5
@@ -49,7 +44,6 @@ groups:
         labels: { severity: warning }
         annotations:
           summary: "Camera {{ $labels.stream }}: p95 frame latency above 500 ms"
-          runbook: docs/RUNBOOK.md#bagcounterhighlatency
 
       - alert: BagcounterTrackFragmentation
         expr: |
@@ -59,7 +53,6 @@ groups:
         labels: { severity: warning }
         annotations:
           summary: "Camera {{ $labels.stream }}: tracking became unstable versus yesterday"
-          runbook: docs/RUNBOOK.md#bagcountertrackfragmentation
 
       - alert: BagcounterLowDetectionConfidence
         expr: histogram_quantile(0.5, sum by (le, stream) (rate(bagcounter_detection_score_bucket{stream!="job"}[30m]))) < 0.4
@@ -67,7 +60,6 @@ groups:
         labels: { severity: warning }
         annotations:
           summary: "Camera {{ $labels.stream }}: median detection confidence below 0.4 (picture differs from training data)"
-          runbook: docs/RUNBOOK.md#bagcounterlowdetectionconfidence
 
       - alert: BagcounterDiskLow
         expr: bagcounter_disk_free_bytes{job="bagcounter-worker"} < 5e9
@@ -75,14 +67,12 @@ groups:
         labels: { severity: warning }
         annotations:
           summary: "Under 5 GB free on the data volume (uploads are refused under 2 GB)"
-          runbook: docs/RUNBOOK.md#bagcounterdisklow
 
       - alert: BagcounterJobsFailing
         expr: increase(bagcounter_jobs_total{outcome="failed"}[1h]) > 2
         labels: { severity: warning }
         annotations:
           summary: "More than 2 video jobs failed in the last hour"
-          runbook: docs/RUNBOOK.md#bagcounterjobsfailing
 
       - alert: BagcounterQueueBacklog
         expr: bagcounter_queue_depth > 10
@@ -90,4 +80,3 @@ groups:
         labels: { severity: warning }
         annotations:
           summary: "More than 10 video jobs waiting for 15 min"
-          runbook: docs/RUNBOOK.md#bagcounterqueuebacklog

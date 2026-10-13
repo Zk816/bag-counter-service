@@ -1,0 +1,11 @@
+{
+  "url": "https://huggingface.co/eredirros/bag-counter-yolov8s-int8/resolve/main/{name}",
+  "target": "models/bag_v8s_int8",
+  "files": {
+    "model.xml": "3e05555359c0b0691393901f30d1f96fcf6a70cd19ba047347e9d418086685fe",
+    "model.bin": "3f2c2d1edc18f550f9797b5853c750c4c7dc23939af5a8ef94dcfb669ccab4a6",
+    "selftest.jpg": "105d2815fbee86fb71ef3fc248bdf8c1a2ab3e604e1a7fd00ad816c84fc9f42e",
+    "model.json": "05a5dff8f4ef324b163fe03ee5e06ac10901e7fafd5aa3c52acf1dcfcb481c70",
+    "checksums.sha256": "53afc29f86d5f3c0cfb84bc46117b2d5c99d5d7baf84dbce57a5708aa1482ae1"
+  }
+}

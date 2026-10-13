@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bag Counter</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="logo">▣</span> Bag Counter</div>
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="video" role="tab">Count a video</button>
+    <button class="tab" data-tab="cameras" role="tab">Live cameras</button>
+    <button class="tab" data-tab="history" role="tab">History</button>
+  </nav>
+  <div class="status" id="ready" title="Service readiness">
+    <span class="dot"></span><span class="label">checking…</span>
+  </div>
+</header>
+
+<main>
+  <!-- ============ VIDEO ============ -->
+  <section id="tab-video" class="panel active">
+    <div class="steps">
+      <div class="step" id="step-upload">
+        <h2><span class="num">1</span> Upload a video</h2>
+        <label class="drop" id="drop">
+          <input type="file" id="file" accept="video/*" hidden>
+          <div class="drop-inner">
+            <strong>Choose a video</strong> or drop it here
+            <small id="limits">MP4 / MOV / MKV</small>
+          </div>
+        </label>
+        <div class="bar hidden" id="up-bar"><div></div><span></span></div>
+        <p class="error hidden" id="up-err"></p>
+      </div>
+
+      <div class="step disabled" id="step-line">
+        <h2><span class="num">2</span> Draw the counting line</h2>
+        <p class="hint">Click two points across the belt. Bags are counted when their centre crosses the line
+          in the direction of the arrow.</p>
+        <div class="canvas-wrap" id="line-wrap">
+          <img id="preview" alt="first frame of the video">
+          <canvas id="line-canvas"></canvas>
+        </div>
+        <div class="controls">
+          <button class="ghost" id="flip" title="Reverse the counting direction">⇅ Flip arrow</button>
+          <label class="check"><input type="checkbox" id="both"> Count both directions</label>
+          <button class="ghost" id="line-clear">Clear line</button>
+          <label class="check"><input type="checkbox" id="annotate" checked> Annotated video</label>
+          <button class="primary" id="start" disabled>Start counting</button>
+        </div>
+      </div>
+
+      <div class="step disabled" id="step-result">
+        <h2><span class="num">3</span> Result</h2>
+        <div id="job-running" class="hidden">
+          <div class="bar" id="job-bar"><div></div><span></span></div>
+          <p class="muted"><span id="job-live">0</span> bags so far · <button class="link" id="cancel">cancel</button></p>
+        </div>
+        <div id="job-result" class="hidden"></div>
+        <p class="error hidden" id="job-err"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CAMERAS ============ -->
+  <section id="tab-cameras" class="panel">
+    <div class="row-head">
+      <h2>Live cameras</h2>
+      <button class="primary" id="cam-add-open">Add camera</button>
+    </div>
+    <form id="cam-add" class="card hidden">
+      <div class="grid2">
+        <label>Name <input name="name" required maxlength="80" placeholder="Line 1 – packing"></label>
+        <label>Stream URL <input name="url" required placeholder="rtsp://user:pass@192.168.1.20:554/stream1"></label>
+      </div>
+      <div class="controls">
+        <button type="submit" class="primary">Save</button>
+        <button type="button" class="ghost" id="cam-add-cancel">Cancel</button>
+        <span class="muted">After saving, draw the counting line on the live picture.</span>
+      </div>
+      <p class="error hidden" id="cam-err"></p>
+    </form>
+    <div id="cams" class="cams"></div>
+    <p class="muted empty hidden" id="cams-empty">No cameras yet.</p>
+  </section>
+
+  <!-- ============ HISTORY ============ -->
+  <section id="tab-history" class="panel">
+    <h2>Recent video jobs</h2>
+    <table class="table" id="jobs"><thead><tr>
+      <th>Video</th><th>Status</th><th class="num">Bags</th><th>Started</th><th>Duration</th><th></th>
+    </tr></thead><tbody></tbody></table>
+  </section>
+</main>
+
+<dialog id="line-dialog">
+  <h3>Counting line – <span id="ld-name"></span></h3>
+  <p class="hint">Click two points across the belt, pick the direction, save.</p>
+  <div class="canvas-wrap"><img id="ld-img" alt="camera picture"><canvas id="ld-canvas"></canvas></div>
+  <div class="controls">
+    <button class="ghost" id="ld-flip" title="Reverse the counting direction">⇅ Flip arrow</button>
+    <label class="check"><input type="checkbox" id="ld-both"> Count both directions</label>
+    <button class="ghost" id="ld-cancel">Cancel</button>
+    <button class="primary" id="ld-save" disabled>Save line</button>
+  </div>
+</dialog>
+
+<footer class="foot" id="foot"></footer>
+<script type="module" src="/static/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        python: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - name: System packages
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg
+      - name: Install
+        run: pip install -r requirements-dev.txt && pip install -e . --no-deps
+      - name: Model
+        run: python scripts/fetch_model.py
+      - name: Lint
+        run: ruff check src tests scripts
+      - name: Types
+        run: mypy
+      - name: Tests (unit, API contract, real model on the 8 s ground-truth clip)
+        run: pytest -q
+
+  image:
+    runs-on: ubuntu-24.04
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Model
+        run: python3 scripts/fetch_model.py
+      - name: Build runtime image
+        run: docker build -f deploy/Dockerfile -t bagcounter:ci .
+      - name: Preflight inside the image (model checksums + self-test)
+        run: docker run --rm bagcounter:ci preflight
+      - name: Validate Prometheus config and alert rules
+        run: |
+          docker run --rm --entrypoint promtool -v "$PWD/deploy/prometheus:/etc/prometheus:ro" \
+            prom/prometheus:v2.54.1 check config /etc/prometheus/prometheus.yml

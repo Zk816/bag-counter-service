@@ -1,0 +1,7 @@
+*
+!src/
+!models/
+!tests/data/
+!requirements.txt
+!pyproject.toml
+**/__pycache__

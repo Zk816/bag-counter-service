@@ -1,0 +1,93 @@
+name: bagcounter
+
+x-app: &app
+  image: bagcounter:1.0.0
+  build:
+    context: ..
+    dockerfile: deploy/Dockerfile
+  volumes:
+    - data:/data
+  environment:
+    BAGCOUNTER_LOG_LEVEL: ${BAGCOUNTER_LOG_LEVEL:-INFO}
+    BAGCOUNTER_MAX_CAMERAS: ${BAGCOUNTER_MAX_CAMERAS:-4}
+    BAGCOUNTER_INFER_THREADS: ${BAGCOUNTER_INFER_THREADS:-8}
+  logging:
+    driver: json-file
+    options: { max-size: "50m", max-file: "5" }
+  restart: unless-stopped
+
+services:
+  api:
+    <<: *app
+    command: ["api"]
+    ports:
+      - "${BAGCOUNTER_HTTP_PORT:-8080}:8080"
+    depends_on:
+      worker:
+        condition: service_started
+    stop_grace_period: 30s
+
+  worker:
+    <<: *app
+    command: ["worker"]
+    cpuset: "${BAGCOUNTER_CPUSET:-}"
+    mem_limit: ${BAGCOUNTER_WORKER_MEM:-4g}
+    healthcheck:
+      test: ["CMD", "python", "-m", "bagcounter.cli", "healthcheck", "worker"]
+      interval: 15s
+      timeout: 5s
+      start_period: 60s
+      retries: 3
+    stop_grace_period: 30s
+
+  prometheus:
+    image: prom/prometheus:v2.54.1
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.retention.time=30d
+      - --storage.tsdb.retention.size=5GB
+    volumes:
+      - ./prometheus:/etc/prometheus:ro
+      - prometheus:/prometheus
+    ports:
+      - "127.0.0.1:${PROMETHEUS_PORT:-9090}:9090"
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:11.2.0
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:?set GRAFANA_ADMIN_PASSWORD in deploy/.env}
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Viewer
+      GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH: /var/lib/grafana/dashboards/bagcounter.json
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+      GF_ANALYTICS_CHECK_FOR_UPDATES: "false"
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - grafana:/var/lib/grafana
+    ports:
+      - "${GRAFANA_PORT:-3000}:3000"
+    restart: unless-stopped
+
+  rtsp:
+    profiles: ["demo"]
+    image: bluenviron/mediamtx:1.9.1
+    restart: unless-stopped
+
+  demo-camera:
+    profiles: ["demo"]
+    image: bagcounter:1.0.0
+    entrypoint: ["ffmpeg"]
+    command: ["-loglevel", "error", "-re", "-stream_loop", "-1", "-i", "/demo/clip_8s.mp4", "-an", "-c:v", "copy",
+              "-f", "rtsp", "-rtsp_transport", "tcp", "rtsp://rtsp:8554/demo"]
+    volumes:
+      - ../tests/data:/demo:ro
+    depends_on: [rtsp]
+    healthcheck: { disable: true }
+    restart: unless-stopped
+
+volumes:
+  data:
+  prometheus:
+  grafana:

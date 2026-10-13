@@ -1,0 +1,11 @@
+# Runtime of the counting service (CPU only, no torch / ultralytics). Pinned for reproducible images.
+numpy==2.2.6
+scipy==1.15.3
+opencv-python-headless==4.13.0.92
+openvino==2026.4.1
+fastapi==0.143.0
+uvicorn[standard]==0.54.0
+python-multipart==0.0.32
+pydantic==2.13.4
+pydantic-settings==2.15.0
+prometheus-client==0.26.0

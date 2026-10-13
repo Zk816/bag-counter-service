@@ -1,0 +1,10 @@
+# training, export and experiments (GPU); not part of the runtime image
+ultralytics==8.4.23
+torch==2.5.1
+torchvision==0.20.1
+nncf==3.4.0
+onnx==1.23.1
+onnxruntime==1.23.2
+openvino==2026.4.1
+matplotlib
+tqdm

@@ -1,0 +1,60 @@
+# environments
+venv/
+.venv/
+__pycache__/
+*.pyc
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+*.egg-info/
+
+# data, training outputs, weights (too large / regenerable)
+/dataset/
+/runs/
+experiments/edge/runs/
+experiments/edge/results/*.log
+experiments/edge/val1000.txt
+experiments/edge/val1000.yaml
+experiments/edge/cpp/build/
+scripts/dataset/analysis/
+*.pt
+*.onnx
+
+# videos and images (only the small test clip is tracked)
+*.mp4
+!tests/data/clip_8s.mp4
+*.jpg
+*.png
+!assets/*.png
+!assets/*.gif
+*.log
+
+# runtime data of the service
+/data/
+
+# local tool settings
+.claude/
+!models/*/selftest.jpg
+deploy/.env
+
+# env and secrets
+.env
+.env.*
+*.pem
+*.key
+
+# IDE and OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+.ipynb_checkpoints/
+
+# checkpoints
+*.ckpt
+*.pth
+*.safetensors
+
+# model weights come from Hugging Face: scripts/fetch_model.py
+/models/

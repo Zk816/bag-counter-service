@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bagcounter"
+version = "1.0.0"
+description = "CPU bag counter for conveyor belts: OpenVINO detection, ByteTrack tracking, line-crossing counting, REST API and web UI."
+requires-python = ">=3.10"
+license = { text = "AGPL-3.0-only" }
+
+[project.scripts]
+bagcounter = "bagcounter.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["bagcounter*"]
+
+[tool.setuptools.package-data]
+bagcounter = ["api/static/*", "api/static/js/*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+extend-exclude = ["experiments", "scripts/train.py", "scripts/dataset", "scripts/harvest_crops.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "BLE", "SIM", "RUF", "PTH", "T20", "TID"]
+ignore = ["S101", "S603", "S607", "RUF001", "RUF002", "RUF003"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S", "PTH", "T20"]
+"scripts/**" = ["T20"]
+
+[tool.ruff.lint.flake8-tidy-imports.banned-api]
+"os.getenv".msg = "read configuration through bagcounter.config.Settings"
+"tempfile".msg = "job data lives in Settings.data_dir, owned by bagcounter.store"
+
+[tool.mypy]
+strict = true
+python_version = "3.10"
+files = ["src/bagcounter"]
+mypy_path = "src"
+ignore_missing_imports = true
+plugins = ["pydantic.mypy"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--import-mode=importlib"
+markers = [
+  "integration: runs the real OpenVINO model on a video clip",
+  "rtsp: needs docker + ffmpeg to start a local RTSP server",
+]

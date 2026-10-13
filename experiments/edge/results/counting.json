@@ -1,0 +1,267 @@
+{
+  "reference": {
+    "test_video.mp4": 0,
+    "test_video2.mp4": 4,
+    "test_video3.mp4": 7
+  },
+  "reference_no_tta": {
+    "test_video.mp4": 0,
+    "test_video2.mp4": 4,
+    "test_video3.mp4": 4
+  },
+  "ground_truth": null,
+  "edge": [
+    {
+      "model": "yolov8x",
+      "format": "fp32",
+      "video": "test_video.mp4",
+      "frames": 791,
+      "count": 0,
+      "fps": 17.794894473235356,
+      "ms": {
+        "pre": 4.532313759070168,
+        "infer": 48.616439754593124,
+        "post_track": 0.2443088564725049
+      },
+      "reference": 0
+    },
+    {
+      "model": "yolov8x",
+      "format": "fp32",
+      "video": "test_video2.mp4",
+      "frames": 1508,
+      "count": 4,
+      "fps": 17.52261773449023,
+      "ms": {
+        "pre": 4.231612576327388,
+        "infer": 50.636476593768954,
+        "post_track": 0.8760826126116498
+      },
+      "reference": 4
+    },
+    {
+      "model": "yolov8x",
+      "format": "fp32",
+      "video": "test_video3.mp4",
+      "frames": 238,
+      "count": 3,
+      "fps": 17.481770387954366,
+      "ms": {
+        "pre": 4.846621091485399,
+        "infer": 47.71230441220731,
+        "post_track": 1.8520482087961765
+      },
+      "reference": 7
+    },
+    {
+      "model": "yolov8x",
+      "format": "int8",
+      "video": "test_video.mp4",
+      "frames": 791,
+      "count": 0,
+      "fps": 18.108772350388307,
+      "ms": {
+        "pre": 4.063376234361593,
+        "infer": 48.052211392755645,
+        "post_track": 0.24626236326530973
+      },
+      "reference": 0
+    },
+    {
+      "model": "yolov8x",
+      "format": "int8",
+      "video": "test_video2.mp4",
+      "frames": 1508,
+      "count": 5,
+      "fps": 17.85027601268532,
+      "ms": {
+        "pre": 4.1079200564609435,
+        "infer": 49.804930646214586,
+        "post_track": 0.8079535531655784
+      },
+      "reference": 4
+    },
+    {
+      "model": "yolov8x",
+      "format": "int8",
+      "video": "test_video3.mp4",
+      "frames": 238,
+      "count": 4,
+      "fps": 18.661513524859938,
+      "ms": {
+        "pre": 3.987071098478026,
+        "infer": 46.33954253259013,
+        "post_track": 1.5916906692432005
+      },
+      "reference": 7
+    },
+    {
+      "model": "yolov8s",
+      "format": "fp32",
+      "video": "test_video.mp4",
+      "frames": 791,
+      "count": 0,
+      "fps": 52.362832059282205,
+      "ms": {
+        "pre": 3.793816693838304,
+        "infer": 12.313866593395788,
+        "post_track": 0.12730998687643919
+      },
+      "reference": 0
+    },
+    {
+      "model": "yolov8s",
+      "format": "fp32",
+      "video": "test_video2.mp4",
+      "frames": 1508,
+      "count": 4,
+      "fps": 57.9513183433497,
+      "ms": {
+        "pre": 3.141315311776469,
+        "infer": 12.019568728468323,
+        "post_track": 0.5284120774622858
+      },
+      "reference": 4
+    },
+    {
+      "model": "yolov8s",
+      "format": "fp32",
+      "video": "test_video3.mp4",
+      "frames": 238,
+      "count": 6,
+      "fps": 74.322003396441,
+      "ms": {
+        "pre": 3.041905427288984,
+        "infer": 8.107180640633617,
+        "post_track": 1.1378549011972021
+      },
+      "reference": 7
+    },
+    {
+      "model": "yolov8s",
+      "format": "int8",
+      "video": "test_video.mp4",
+      "frames": 791,
+      "count": 0,
+      "fps": 51.84366602123532,
+      "ms": {
+        "pre": 3.8747394642311086,
+        "infer": 12.933381266218484,
+        "post_track": 0.12825085815659215
+      },
+      "reference": 0
+    },
+    {
+      "model": "yolov8s",
+      "format": "int8",
+      "video": "test_video2.mp4",
+      "frames": 1508,
+      "count": 5,
+      "fps": 59.47718183946648,
+      "ms": {
+        "pre": 3.204622980026869,
+        "infer": 11.838439654988738,
+        "post_track": 0.5161765081541173
+      },
+      "reference": 4
+    },
+    {
+      "model": "yolov8s",
+      "format": "int8",
+      "video": "test_video3.mp4",
+      "frames": 238,
+      "count": 6,
+      "fps": 74.0715400051492,
+      "ms": {
+        "pre": 2.9437508015353386,
+        "infer": 8.166892600770131,
+        "post_track": 1.0994686882066376
+      },
+      "reference": 7
+    },
+    {
+      "model": "yolov8n",
+      "format": "fp32",
+      "video": "test_video.mp4",
+      "frames": 791,
+      "count": 0,
+      "fps": 79.90324868014447,
+      "ms": {
+        "pre": 3.2127300923744357,
+        "infer": 6.892216115761384,
+        "post_track": 0.3265091724335846
+      },
+      "reference": 0
+    },
+    {
+      "model": "yolov8n",
+      "format": "fp32",
+      "video": "test_video2.mp4",
+      "frames": 1508,
+      "count": 4,
+      "fps": 84.55980891510464,
+      "ms": {
+        "pre": 3.4120627178684546,
+        "infer": 6.516529624202147,
+        "post_track": 0.5136290796728562
+      },
+      "reference": 4
+    },
+    {
+      "model": "yolov8n",
+      "format": "fp32",
+      "video": "test_video3.mp4",
+      "frames": 238,
+      "count": 3,
+      "fps": 70.25681426020562,
+      "ms": {
+        "pre": 3.268052328831884,
+        "infer": 8.026482005204473,
+        "post_track": 1.0936945293317824
+      },
+      "reference": 7
+    },
+    {
+      "model": "yolov8n",
+      "format": "int8",
+      "video": "test_video.mp4",
+      "frames": 791,
+      "count": 0,
+      "fps": 74.21998386802682,
+      "ms": {
+        "pre": 3.2372589878898053,
+        "infer": 7.987886274000336,
+        "post_track": 0.34958126515564514
+      },
+      "reference": 0
+    },
+    {
+      "model": "yolov8n",
+      "format": "int8",
+      "video": "test_video2.mp4",
+      "frames": 1508,
+      "count": 7,
+      "fps": 78.42568079907845,
+      "ms": {
+        "pre": 3.0282058701195833,
+        "infer": 8.050060268387753,
+        "post_track": 0.5817395491051224
+      },
+      "reference": 4
+    },
+    {
+      "model": "yolov8n",
+      "format": "int8",
+      "video": "test_video3.mp4",
+      "frames": 238,
+      "count": 5,
+      "fps": 91.68351004121392,
+      "ms": {
+        "pre": 2.8476105110735452,
+        "infer": 5.59215053540318,
+        "post_track": 1.0128906779304272
+      },
+      "reference": 7
+    }
+  ]
+}

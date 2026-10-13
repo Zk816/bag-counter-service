@@ -1,0 +1,245 @@
+{
+  "codec_bitrate": [
+    {
+      "codec": "h264",
+      "target_kbps": 4000,
+      "kbps": 3779,
+      "count": 9,
+      "truth": 9,
+      "count_error": 0,
+      "count_error_pct": 0.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "tracks": 38
+    },
+    {
+      "codec": "h264",
+      "target_kbps": 1000,
+      "kbps": 944,
+      "count": 9,
+      "truth": 9,
+      "count_error": 0,
+      "count_error_pct": 0.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "tracks": 36
+    },
+    {
+      "codec": "h264",
+      "target_kbps": 500,
+      "kbps": 474,
+      "count": 9,
+      "truth": 9,
+      "count_error": 0,
+      "count_error_pct": 0.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "tracks": 36
+    },
+    {
+      "codec": "h264",
+      "target_kbps": 250,
+      "kbps": 241,
+      "count": 8,
+      "truth": 9,
+      "count_error": -1,
+      "count_error_pct": -11.1,
+      "precision": 1.0,
+      "recall": 0.889,
+      "tracks": 34
+    },
+    {
+      "codec": "h264",
+      "target_kbps": 120,
+      "kbps": 118,
+      "count": 4,
+      "truth": 9,
+      "count_error": -5,
+      "count_error_pct": -55.6,
+      "precision": 1.0,
+      "recall": 0.444,
+      "tracks": 56
+    },
+    {
+      "codec": "h265",
+      "target_kbps": 4000,
+      "kbps": 3928,
+      "count": 9,
+      "truth": 9,
+      "count_error": 0,
+      "count_error_pct": 0.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "tracks": 40
+    },
+    {
+      "codec": "h265",
+      "target_kbps": 1000,
+      "kbps": 989,
+      "count": 9,
+      "truth": 9,
+      "count_error": 0,
+      "count_error_pct": 0.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "tracks": 40
+    },
+    {
+      "codec": "h265",
+      "target_kbps": 500,
+      "kbps": 498,
+      "count": 9,
+      "truth": 9,
+      "count_error": 0,
+      "count_error_pct": 0.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "tracks": 39
+    },
+    {
+      "codec": "h265",
+      "target_kbps": 250,
+      "kbps": 253,
+      "count": 7,
+      "truth": 9,
+      "count_error": -2,
+      "count_error_pct": -22.2,
+      "precision": 1.0,
+      "recall": 0.778,
+      "tracks": 42
+    },
+    {
+      "codec": "h265",
+      "target_kbps": 120,
+      "kbps": 125,
+      "count": 4,
+      "truth": 9,
+      "count_error": -5,
+      "count_error_pct": -55.6,
+      "precision": 1.0,
+      "recall": 0.444,
+      "tracks": 29
+    }
+  ],
+  "fps": [
+    {
+      "stride": 1,
+      "processed_fps": 30.0,
+      "count": 9,
+      "truth": 9,
+      "count_error": 0,
+      "count_error_pct": 0.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "tracks": 36
+    },
+    {
+      "stride": 2,
+      "processed_fps": 15.0,
+      "count": 8,
+      "truth": 9,
+      "count_error": -1,
+      "count_error_pct": -11.1,
+      "precision": 1.0,
+      "recall": 0.889,
+      "tracks": 36
+    },
+    {
+      "stride": 3,
+      "processed_fps": 10.0,
+      "count": 8,
+      "truth": 9,
+      "count_error": -1,
+      "count_error_pct": -11.1,
+      "precision": 1.0,
+      "recall": 0.889,
+      "tracks": 33
+    },
+    {
+      "stride": 4,
+      "processed_fps": 7.5,
+      "count": 6,
+      "truth": 9,
+      "count_error": -3,
+      "count_error_pct": -33.3,
+      "precision": 0.833,
+      "recall": 0.556,
+      "tracks": 31
+    },
+    {
+      "stride": 6,
+      "processed_fps": 5.0,
+      "count": 3,
+      "truth": 9,
+      "count_error": -6,
+      "count_error_pct": -66.7,
+      "precision": 0.667,
+      "recall": 0.222,
+      "tracks": 23
+    }
+  ],
+  "decode": [
+    {
+      "codec": "h264",
+      "kbps": 1000,
+      "decode_ms_per_frame": 1.69
+    },
+    {
+      "codec": "h265",
+      "kbps": 1000,
+      "decode_ms_per_frame": 2.32
+    }
+  ],
+  "factory": [
+    {
+      "variant": "original, 30 fps processed",
+      "count": 104,
+      "agreement": "reference"
+    },
+    {
+      "variant": "original, 15 fps processed",
+      "count": 104,
+      "agreement": 1.0
+    },
+    {
+      "variant": "original, 10 fps processed",
+      "count": 104,
+      "agreement": 1.0
+    },
+    {
+      "variant": "original, 5 fps processed",
+      "count": 104,
+      "agreement": 1.0
+    },
+    {
+      "variant": "h264 2006 kbit/s, 30 fps processed",
+      "count": 104,
+      "agreement": 1.0
+    },
+    {
+      "variant": "h264 506 kbit/s, 30 fps processed",
+      "count": 105,
+      "agreement": 1.01
+    },
+    {
+      "variant": "h264 206 kbit/s, 30 fps processed",
+      "count": 95,
+      "agreement": 0.913
+    },
+    {
+      "variant": "h265 2008 kbit/s, 30 fps processed",
+      "count": 104,
+      "agreement": 1.0
+    },
+    {
+      "variant": "h265 508 kbit/s, 30 fps processed",
+      "count": 104,
+      "agreement": 1.0
+    },
+    {
+      "variant": "h265 208 kbit/s, 30 fps processed",
+      "count": 104,
+      "agreement": 1.0
+    }
+  ]
+}

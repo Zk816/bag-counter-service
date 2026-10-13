@@ -1,0 +1,128 @@
+[
+  {
+    "model": "yolov8x",
+    "cpp_sync": {
+      "frames": 900,
+      "fps": 19.36,
+      "threads": 8,
+      "async": 0,
+      "mean_detections": 2.17,
+      "ms": {
+        "read": 0.511,
+        "pre": 1.236,
+        "infer_wait": 49.869,
+        "post": 0.023,
+        "wait_p50": 34.748,
+        "wait_p95": 195.805
+      }
+    },
+    "cpp_async": {
+      "frames": 900,
+      "fps": 19.58,
+      "threads": 8,
+      "async": 1,
+      "mean_detections": 2.17,
+      "ms": {
+        "read": 0.568,
+        "pre": 1.188,
+        "infer_wait": 49.293,
+        "post": 0.023,
+        "wait_p50": 34.094,
+        "wait_p95": 199.464
+      }
+    },
+    "python": {
+      "fps": 17.17336188933509,
+      "ms": {
+        "pre": 4.312998233844751,
+        "infer": 51.6842448119252,
+        "post_track": 0.8133607635531446
+      },
+      "frames": 1508
+    }
+  },
+  {
+    "model": "yolov8s",
+    "cpp_sync": {
+      "frames": 900,
+      "fps": 85.73,
+      "threads": 8,
+      "async": 0,
+      "mean_detections": 2.14,
+      "ms": {
+        "read": 0.444,
+        "pre": 1.124,
+        "infer_wait": 10.08,
+        "post": 0.012,
+        "wait_p50": 7.239,
+        "wait_p95": 12.758
+      }
+    },
+    "cpp_async": {
+      "frames": 900,
+      "fps": 88.67,
+      "threads": 8,
+      "async": 1,
+      "mean_detections": 2.14,
+      "ms": {
+        "read": 0.328,
+        "pre": 1.112,
+        "infer_wait": 9.822,
+        "post": 0.011,
+        "wait_p50": 6.892,
+        "wait_p95": 12.446
+      }
+    },
+    "python": {
+      "fps": 58.2314430367893,
+      "ms": {
+        "pre": 3.1090710458496402,
+        "infer": 12.160802729099258,
+        "post_track": 0.5544000746810746
+      },
+      "frames": 1508
+    }
+  },
+  {
+    "model": "yolov8n",
+    "cpp_sync": {
+      "frames": 900,
+      "fps": 112.18,
+      "threads": 8,
+      "async": 0,
+      "mean_detections": 2.46,
+      "ms": {
+        "read": 0.366,
+        "pre": 1.131,
+        "infer_wait": 7.402,
+        "post": 0.011,
+        "wait_p50": 4.477,
+        "wait_p95": 7.904
+      }
+    },
+    "cpp_async": {
+      "frames": 900,
+      "fps": 171.59,
+      "threads": 8,
+      "async": 1,
+      "mean_detections": 2.46,
+      "ms": {
+        "read": 0.297,
+        "pre": 1.077,
+        "infer_wait": 4.437,
+        "post": 0.011,
+        "wait_p50": 4.376,
+        "wait_p95": 4.677
+      }
+    },
+    "python": {
+      "fps": 74.54848972814811,
+      "ms": {
+        "pre": 3.03091572978057,
+        "infer": 8.545753378384013,
+        "post_track": 0.5483054552864609
+      },
+      "frames": 1508
+    }
+  }
+]

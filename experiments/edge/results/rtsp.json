@@ -1,0 +1,164 @@
+{
+  "duration_s": 45,
+  "rows": [
+    {
+      "model": "yolov8n",
+      "format": "int8",
+      "cameras": 1,
+      "fps_per_camera": [
+        20.308872460424862
+      ],
+      "camera_fps": 24.99724454921003,
+      "dropped_share": 0.18844444444444444,
+      "latency_ms_p50": 25.726798456162214,
+      "latency_ms_p95": 123.00708417315032,
+      "counts": [
+        5
+      ]
+    },
+    {
+      "model": "yolov8n",
+      "format": "int8",
+      "cameras": 2,
+      "fps_per_camera": [
+        19.263245388367707,
+        19.241027112256557
+      ],
+      "camera_fps": 24.9955606250446,
+      "dropped_share": 0.23066666666666666,
+      "latency_ms_p50": 29.232522938400507,
+      "latency_ms_p95": 118.87976415455341,
+      "counts": [
+        5,
+        5
+      ]
+    },
+    {
+      "model": "yolov8n",
+      "format": "int8",
+      "cameras": 4,
+      "fps_per_camera": [
+        18.98235046662544,
+        18.938050932280923,
+        15.9699821311983,
+        17.63121466911768
+      ],
+      "camera_fps": 24.370281331277294,
+      "dropped_share": 0.26607589184276303,
+      "latency_ms_p50": 47.701805364340544,
+      "latency_ms_p95": 117.53624351695179,
+      "counts": [
+        4,
+        4,
+        2,
+        4
+      ]
+    },
+    {
+      "model": "yolov8s",
+      "format": "int8",
+      "cameras": 1,
+      "fps_per_camera": [
+        18.92618463963256
+      ],
+      "camera_fps": 24.969282191234537,
+      "dropped_share": 0.24202127659574468,
+      "latency_ms_p50": 59.33047505095601,
+      "latency_ms_p95": 200.09171185083687,
+      "counts": [
+        3
+      ]
+    },
+    {
+      "model": "yolov8s",
+      "format": "int8",
+      "cameras": 2,
+      "fps_per_camera": [
+        17.911119582301982,
+        17.911119582301982
+      ],
+      "camera_fps": 25.00463228816415,
+      "dropped_share": 0.28368794326241137,
+      "latency_ms_p50": 61.221676878631115,
+      "latency_ms_p95": 199.69131902325898,
+      "counts": [
+        3,
+        3
+      ]
+    },
+    {
+      "model": "yolov8s",
+      "format": "int8",
+      "cameras": 4,
+      "fps_per_camera": [
+        15.296230616042118,
+        15.296230616042118,
+        13.497979992095223,
+        15.296230616042118
+      ],
+      "camera_fps": 24.42623764194534,
+      "dropped_share": 0.39195637355146556,
+      "latency_ms_p50": 62.458585947752,
+      "latency_ms_p95": 206.1394083313643,
+      "counts": [
+        4,
+        4,
+        2,
+        3
+      ]
+    },
+    {
+      "model": "yolov8x",
+      "format": "int8",
+      "cameras": 1,
+      "fps_per_camera": [
+        3.9304848124512928
+      ],
+      "camera_fps": 25.00225061253739,
+      "dropped_share": 0.8427947598253275,
+      "latency_ms_p50": 211.6538118571043,
+      "latency_ms_p95": 805.8052264153938,
+      "counts": [
+        3
+      ]
+    },
+    {
+      "model": "yolov8x",
+      "format": "int8",
+      "cameras": 2,
+      "fps_per_camera": [
+        3.990357711597015,
+        3.990357711597015
+      ],
+      "camera_fps": 25.006241659341296,
+      "dropped_share": 0.8404255319148937,
+      "latency_ms_p50": 207.29383686557412,
+      "latency_ms_p95": 811.2421232974157,
+      "counts": [
+        3,
+        3
+      ]
+    },
+    {
+      "model": "yolov8x",
+      "format": "int8",
+      "cameras": 4,
+      "fps_per_camera": [
+        3.811618851646012,
+        3.811618851646012,
+        3.313509569896817,
+        3.811618851646012
+      ],
+      "camera_fps": 24.434425962327346,
+      "dropped_share": 0.8488810104143585,
+      "latency_ms_p50": 204.5960701070726,
+      "latency_ms_p95": 902.4051111191511,
+      "counts": [
+        3,
+        3,
+        2,
+        3
+      ]
+    }
+  ]
+}

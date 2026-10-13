@@ -1,0 +1,7 @@
+{
+  "video": "clip_8s.mp4",
+  "description": "Fixed overhead camera, bags slide down a chute into a truck. Crossings of the line counted by hand from a 5 fps contact sheet.",
+  "line": {"ax": 0.3, "ay": 0.35, "bx": 0.7, "by": 0.35, "direction": "positive"},
+  "count": 9,
+  "crossings_s": [0.7, 1.7, 2.5, 3.5, 4.3, 5.1, 6.1, 6.9, 7.7]
+}
